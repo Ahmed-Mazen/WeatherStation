@@ -15,8 +15,22 @@ pipeline {
             }
         }
         stage('Test') {
-            steps{
-                sh ('docker run -d ahmedbahaamazen/weather-station:$BUILD_NUMBER')
+            parallel {
+                stage('Unit Test'){
+                    steps{
+                        sh ('docker run -d ahmedbahaamazen/weather-station:$BUILD_NUMBER')
+                    }
+                }
+                stage('Integration test'){
+                    steps{
+                        echo 'Integration test'
+                    }
+                }
+                stage('E2E Test'){
+                    steps{
+                        echo 'E2E test'
+                    }
+                }
             }
         }
         stage('Deploy') {
