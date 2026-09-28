@@ -47,11 +47,18 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
+        stage('Release') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'DockerPass', usernameVariable: 'DockerUser')]) {
                     sh "echo '$DockerPass' | docker login -u $DockerUser --password-stdin"
                     sh 'docker push ahmedbahaamazen/weather-station:$BUILD_NUMBER'
+                }
+            }
+        stage('deploy') {
+            steps {
+                sh 'docker step app 2> /dev/null || true'
+                sh 'docker rm -f app 2> /dev/null || true'
+                sh 'docker run --name app -d -p 80:80 ahmedbahaamazen/weather-station:$BUILD_NUMBER'
                 }
             }
         }
