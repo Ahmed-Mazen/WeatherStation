@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps{
-                sh ('docker run -d -p 80:80 ahmedbahaamazen/weather-station:$BUILD_NUMBER')
+                sh ('docker run -d ahmedbahaamazen/weather-station:$BUILD_NUMBER')
             }
         }
         stage('Deploy') {
