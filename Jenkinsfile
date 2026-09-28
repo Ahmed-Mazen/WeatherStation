@@ -26,9 +26,23 @@ pipeline {
                         echo 'Integration test'
                     }
                 }
-                stage('E2E Test'){
-                    steps{
-                        echo 'E2E test'
+                stage('E2E testing'){
+                    stages{
+                        stage('E2E testing: backend'){
+                            steps{
+                                echo 'test'
+                            }
+                        }
+                        stage('E2E testing: frontend'){
+                            steps{
+                                echo 'test'
+                            }
+                        }
+                        stage('E2E testing: database'){
+                            steps{
+                                echo 'test'
+                            }
+                        }
                     }
                 }
             }
