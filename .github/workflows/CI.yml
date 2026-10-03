@@ -10,24 +10,31 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v6.1.0
+      
     - name: list code
       run: ls
+      
   Build:
     runs-on: ubuntu-latest
     needs: checkout
     steps:
     - uses: actions/checkout@v6.1.0
+    
     - name: Build
-      run: docker build . -t my-app 
+      run: docker build . -t ahmedbahaamazen/weather-station:actions
+      
   Test:
     runs-on: ubuntu-latest
     needs: Build
     steps:
     - name: testing
       run: echo "Testing"
+      
   Release:
     runs-on: ubuntu-latest
     needs: Test
     steps:
     - name: push docker image
-      run: echo "push docker image"
+      run: |
+        echo '${{ secrets.DOCKERPASSWORD }}' | docker login -u ${{ secrets.DOCKERUSERNAME }} --password-stdin
+        docker push ahmedbahaamazen/weather-station:actions
