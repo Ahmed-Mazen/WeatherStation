@@ -27,9 +27,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: Build
     steps:
-    - name: testing
-      run: echo "Testing"
-      
+    - uses: actions/checkout@v6.1.0
+    
+    - name: Build
+      run: docker build . -t ahmedbahaamazen/weather-station:actions-${{ github.run_number }}
+
+    - name: docker run
+      run: docker run ahmedbahaamazen/weather-station:actions-${{ github.run_number }}
   Release:
     runs-on: ubuntu-latest
     needs: Test
