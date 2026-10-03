@@ -34,6 +34,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: Test
     steps:
+    - uses: actions/checkout@v6.1.0
+    
+    - name: Build
+      run: docker build . -t ahmedbahaamazen/weather-station:actions
+      
     - name: push docker image
       run: |
         echo '${{ secrets.DOCKERPASSWORD }}' | docker login -u ${{ secrets.DOCKERUSERNAME }} --password-stdin
