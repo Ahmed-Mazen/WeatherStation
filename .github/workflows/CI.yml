@@ -33,7 +33,7 @@ jobs:
       run: docker build . -t ahmedbahaamazen/weather-station:actions-${{ github.run_number }}
 
     - name: docker run
-      run: docker run ahmedbahaamazen/weather-station:actions-${{ github.run_number }}
+      run: docker run -d ahmedbahaamazen/weather-station:actions-${{ github.run_number }}
   Release:
     runs-on: ubuntu-latest
     needs: Test
