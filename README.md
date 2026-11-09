@@ -2,6 +2,17 @@
 
 A comprehensive IoT weather monitoring system built with an ESP32, a DHT11 sensor, and an I2C LCD display. This project features a beautiful, responsive web dashboard to display real-time indoor climate metrics alongside outdoor weather data fetched from the OpenWeatherMap API.
 
+## Team
+
+|Member|GitHub Profile|
+|:----:|:-------------:|
+| Adam Kamal | [@adaamk](https://github.com/adaamk) |
+| Ahmed Bahaa | [@Ahmed-Mazen](https://github.com/Ahmed-Mazen) |
+| Ahmed ELwakeel | [@ahmedelwakeel8](https://github.com/ahmedelwakeel8) |
+| Ahmed Hany | [@Ahmedd-hanii](https://github.com/Ahmedd-hanii) |
+| Mohamed Mamdouh | [@MohamedAlmaasarawy](https://github.com/MohamedAlmaasarawy) |
+| Mohamed Tamer | [@Mohamed393652](https://github.com/Mohamed393652) |
+
 ## ✨ Features
 
 * **Indoor Monitoring:** Real-time temperature and humidity readings using a DHT11 sensor.
